@@ -1,21 +1,25 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-import About from './views/About.vue'
-
+import Home from './pages/home/Home'
+import city from './pages/city/City'
+import Detail from './pages/detail/Detail'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About
-    }
-  ]
+  routes: [{
+    path: '/',
+    component: Home
+  },
+  {
+    path: '/city',
+    component: city
+  },
+  {
+    path: '/detail/:id',
+    component: Detail
+  }
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return {x: 0, y: 0}
+  }
 })
